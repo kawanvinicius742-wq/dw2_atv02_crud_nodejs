@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar gênero</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Início</a>
+      <a href="/filmes">Filmes</a>
+      <a href="/atores">Atores</a>
+      <a href="/generos">Gêneros</a>
+    </nav>
+
+    <main>
+      <h1>Editar gênero</h1>
+
+      <form action="/generos/alterar" method="POST">
+        <input type="hidden" name="id" value="<%= genero.id %>" />
+
+        <label>Nome:</label>
+        <input type="text" name="nome" value="<%= genero.nome %>" required />
+
+        <label>Descrição:</label>
+        <input
+          type="text"
+          name="descricao"
+          value="<%= genero.descricao || '' %>"
+        />
+
+        <button type="submit">Alterar</button>
+        <a href="/generos">Cancelar</a>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+CREATE DATABASE dw2_atv02;
+
+USE dw2_atv02;
+
+CREATE TABLE generos (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+descricao VARCHAR(255)
+);
+
+CREATE TABLE atores (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+nacionalidade VARCHAR(60),
+nascimento DATE
+);
+
+CREATE TABLE filmes (
+id INT AUTO_INCREMENT PRIMARY KEY,
+titulo VARCHAR(150) NOT NULL,
+ano INT,
+classificacao VARCHAR(20),
+genero_id INT,
+FOREIGN KEY (genero_id) REFERENCES generos(id)
+);

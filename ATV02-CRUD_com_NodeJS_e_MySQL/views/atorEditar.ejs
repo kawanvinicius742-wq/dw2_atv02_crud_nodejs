@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar ator</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Início</a>
+      <a href="/filmes">Filmes</a>
+      <a href="/atores">Atores</a>
+      <a href="/generos">Gêneros</a>
+    </nav>
+
+    <main>
+      <h1>Editar ator</h1>
+
+      <form action="/atores/alterar" method="POST">
+        <input type="hidden" name="id" value="<%= ator.id %>" />
+
+        <label>Nome:</label>
+        <input type="text" name="nome" value="<%= ator.nome %>" required />
+
+        <label>Nacionalidade:</label>
+        <input
+          type="text"
+          name="nacionalidade"
+          value="<%= ator.nacionalidade || '' %>"
+        />
+
+        <label>Data de nascimento:</label>
+        <input
+          type="date"
+          name="nascimento"
+          value="<%= ator.nascimento || '' %>"
+        />
+
+        <button type="submit">Alterar</button>
+        <a href="/atores">Cancelar</a>
+      </form>
+    </main>
+  </body>
+</html>

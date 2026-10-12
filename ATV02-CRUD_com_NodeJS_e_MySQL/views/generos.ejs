@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gêneros</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Início</a>
+        <a href="/filmes">Filmes</a>
+        <a href="/atores">Atores</a>
+        <a href="/generos">Gêneros</a>
+    </nav>
+
+    <main>
+        <h1>Gêneros</h1>
+
+        <h2>Cadastrar gênero</h2>
+
+        <form action="/generos/cadastrar" method="POST">
+            <label>Nome:</label>
+            <input type="text" name="nome" required>
+
+            <label>Descrição:</label>
+            <input type="text" name="descricao">
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <h2>Lista de gêneros</h2>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% generos.forEach(genero => { %>
+                    <tr>
+                        <td><%= genero.nome %></td>
+                        <td><%= genero.descricao || "" %></td>
+                        <td>
+                            <a href="/generos/editar/<%= genero.id %>">
+                                Editar
+                            </a>
+
+                            <a href="/generos/excluir/<%= genero.id %>"
+                               onclick="return confirm('Deseja excluir este gênero?')">
+                                Excluir
+                            </a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
